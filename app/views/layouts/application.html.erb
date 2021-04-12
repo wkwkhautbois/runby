@@ -11,12 +11,32 @@
   </head>
 
   <body>
-    <div class="bg-light p-3 border-top">
-      <h1 class="display-5">Ru-n-by</h1>
-      <p class="lead">Rubyのお試し実行環境</p>
+    <div class="bg-light mb-4 p-2 border-top d-flex">
+      <div class="flex-grow-1 align-self-start">
+        <h1 class="mb-0">Ru-n-by <small class="small text-muted">Rubyのお試し実行環境</small></h1>
+      </div>
+      <div class="align-self-end">
+        <% if logged_in? %>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+              メニュー
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </div>
+        <% else %>
+          <%= link_to "ログイン", login_path, class: "btn btn-primary" %>
+        <% end %>
+      </div>
     </div>
     
     <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>">
+          <%= message %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
   </body>
