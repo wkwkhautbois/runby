@@ -1,0 +1,19 @@
+<div class="row justify-content-center">
+    <div class="col-6">
+        <%= form_with(url: login_path, local: true) do |f| %>
+
+            <%= f.label :name, 'ログインID' %>
+            <%= f.text_field :name, class: 'form-control' %>
+
+            <%= f.label :password, 'パスワード' %>
+            <%= f.password_field :password, class: 'form-control' %>
+
+            <div class="mt-4 float-right">
+                <%= f.submit 'ログイン', class: 'btn btn-primary' %>
+            </div>
+            
+
+        <% end %>
+
+    </div>
+</div>
