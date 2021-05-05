@@ -85,8 +85,8 @@ class ExecutionTest
             200,
             {},
             {
-              "result": "success",
-              "output": "xyz",
+              "result" => "success",
+              "output" => "xyz",
             }
           ]
         end
@@ -115,8 +115,8 @@ class ExecutionTest
             200,
             {},
             {
-              "result": "failure",
-              "output": "fff",
+              "result" => "failure",
+              "output"=> "fff",
             }
           ]
         end

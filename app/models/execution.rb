@@ -15,8 +15,8 @@ class Execution < ApplicationRecord
       program: self.program,
       input: self.input,
     }
-    self.result = api_result.body[:result]
-    self.output = api_result.body[:output]
+    self.result = api_result.body["result"]
+    self.output = api_result.body["output"]
   end
 
   def connection
