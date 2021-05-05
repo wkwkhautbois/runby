@@ -55,3 +55,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # HTTP Client
 gem 'faraday', '~> 1.4'
+gem 'faraday_middleware', '~> 1.0'
