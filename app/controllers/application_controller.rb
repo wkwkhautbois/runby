@@ -13,4 +13,15 @@ class ApplicationController < ActionController::Base
   def logout
     reset_session
   end
+
+  def current_account
+    @account ||= Account.find_by(name: session[:account_name])
+  end
+
+  def check_login
+    if not logged_in?
+      flash[:warning] = "ログインが必要です"
+      redirect_to login_url
+    end
+  end
 end

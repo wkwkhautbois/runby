@@ -5,3 +5,10 @@
 # below each fixture, per the syntax in the comments below
 #
 
+one:
+  id: 1
+  account_id: 0
+  program: "p 'hello'"
+  input: "abc"
+  output: ""
+  result: 0

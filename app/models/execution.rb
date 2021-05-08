@@ -20,9 +20,11 @@ class Execution < ApplicationRecord
   end
 
   def connection
-    Faraday.new(url: "https://example.com") do |f|
+    Faraday.new(url: "http://localhost:8080") do |f|
       f.request :json
       f.response :json
+      f.response :raise_error
+      f.response :logger
     end
   end
 end

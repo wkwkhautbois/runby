@@ -1,6 +1,4 @@
 require "test_helper"
-require "minitest/mock"
-
 
 class ExecutionTest
   def self.create_instance

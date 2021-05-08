@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Executions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @executions.each do |execution| %>
+      <tr>
+        <td><%= link_to 'Show', execution %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Execution', new_execution_path %>

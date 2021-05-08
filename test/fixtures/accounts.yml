@@ -9,4 +9,4 @@ person1:
   password_digest: <%= BCrypt::Password.create('foo') %>
 person2:
   name: person2
-  password_digest: <%= BCrypt::Password.create('bar') %>
+  password_digest: <%= BCrypt::Password.create('foo') %>
