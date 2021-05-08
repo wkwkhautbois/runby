@@ -78,9 +78,17 @@ class ExecutionTest
       Faraday.default_connection = nil
     end
 
-    test "プログラム実行成功時の登録値のテスト" do
+    test "プログラム実行のAPIリクエスト値と成功時のDB登録値のテスト" do
+      program = "abc"
+      input = "def"
+
       stubs = Faraday::Adapter::Test::Stubs.new do |stub|
         stub.post("/execution") do |env|
+          #noinspection RubyResolve
+          assert_equal env.request_body[:program], program
+          #noinspection RubyResolve
+          assert_equal env.request_body[:input], input
+
           [
             200,
             {},
@@ -97,8 +105,8 @@ class ExecutionTest
       end
 
       @execution.stub(:connection, conn) do
-        @execution.program = "abc"
-        @execution.input = "ijk"
+        @execution.program = program
+        @execution.input = input
         @execution.save
 
         stubs.verify_stubbed_calls
@@ -110,7 +118,7 @@ class ExecutionTest
 
     test "プログラム実行失敗時の登録値のテスト" do
       stubs = Faraday::Adapter::Test::Stubs.new do |stub|
-        stub.post("/execution") do |env|
+        stub.post("/execution") do
           [
             200,
             {},
