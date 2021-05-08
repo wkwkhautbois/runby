@@ -2,6 +2,7 @@ require "faraday"
 require "faraday_middleware"
 
 class Execution < ApplicationRecord
+  belongs_to :account
   validates :program, presence: true, length: { maximum: 8000 }
   validates :input, length: { maximum: 1000 }
   before_save :execute_program

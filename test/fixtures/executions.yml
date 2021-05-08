@@ -7,8 +7,16 @@
 
 one:
   id: 1
-  account_id: 0
+  account_id: 1
   program: "p 'hello'"
   input: "abc"
   output: ""
   result: 0
+
+two:
+  id: 2
+  account_id: 1
+  program: "p 'hello2'"
+  input: "def"
+  output: ""
+  result: 1

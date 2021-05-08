@@ -5,8 +5,10 @@
 # below each fixture, per the syntax in the comments below
 #
 person1:
+  id: 1
   name: person1
   password_digest: <%= BCrypt::Password.create('foo') %>
 person2:
+  id: 2
   name: person2
   password_digest: <%= BCrypt::Password.create('foo') %>

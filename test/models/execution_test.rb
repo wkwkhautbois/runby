@@ -65,6 +65,11 @@ class ExecutionTest
       @execution.input = "あ" * 1000
       assert @execution.valid?
     end
+
+    test "[内部] 存在しないアカウントではエラー" do
+      @execution.account_id = 99999
+      assert_not @execution.valid?
+    end
   end
 
   class LogicTest < ActiveSupport::TestCase
@@ -142,6 +147,5 @@ class ExecutionTest
         assert_equal "failure", @execution.result
       end
     end
-
   end
 end
