@@ -22,7 +22,9 @@
               メニュー
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-              <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item" %>
+              <%= link_to "新規実行", new_execution_path, class: "dropdown-item" %>
+              <%= link_to "履歴", executions_path, class: "dropdown-item" %>
+              <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item text-muted" %>
             </div>
           </div>
         <% else %>

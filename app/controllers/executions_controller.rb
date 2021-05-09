@@ -2,12 +2,12 @@ class ExecutionsController < ApplicationController
   before_action :check_login
   before_action :set_execution, only: [ :show ]
 
-  # GET /executions or /executions.json
+  # GET /executions
   def index
-    @executions = Execution.all
+    @executions = Execution.all.order(created_at: :desc)
   end
 
-  # GET /executions/1 or /executions/1.json
+  # GET /executions/1
   def show
   end
 
@@ -16,19 +16,17 @@ class ExecutionsController < ApplicationController
     @execution = Execution.new
   end
 
-  # POST /executions or /executions.json
+  # POST /executions
   def create
     @execution = Execution.new(execution_params)
 
-    respond_to do |format|
-      if @execution.save
-        format.html { redirect_to @execution, notice: "Execution was successfully created." }
-        format.json { render :show, status: :created, location: @execution }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @execution.errors, status: :unprocessable_entity }
-      end
+    if @execution.save
+      flash[:info] = "実行しました"
+      redirect_to @execution
+    else
+      render :new, status: :unprocessable_entity
     end
+
   end
 
   private
