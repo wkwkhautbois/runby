@@ -9,6 +9,8 @@ class Execution < ApplicationRecord
 
   enum result: { success: 0, failure: 1 }
 
+  EXECUTION_API_URL_BASE = (ENV["EXECUTION_API_URL_BASE"] || "http://localhost:8080").freeze
+
   private
 
   def execute_program
@@ -21,7 +23,7 @@ class Execution < ApplicationRecord
   end
 
   def connection
-    Faraday.new(url: "http://localhost:8080") do |f|
+    Faraday.new(url: EXECUTION_API_URL_BASE) do |f|
       f.request :json
       f.response :json
       f.response :raise_error
