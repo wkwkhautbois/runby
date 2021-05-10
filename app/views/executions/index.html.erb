@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Executions</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>実行日時</th>
+      <th>結果</th>
+      <th>文字数</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @executions.each do |execution| %>
+      <tr>
+        <%# 実行日時 %>
+        <td><%= execution.created_at.in_time_zone("Tokyo") %></td>
+
+        <%# 結果 %>
+        <td><%= execution_result_to_string(execution) %></td>
+
+        <%# 文字数 %>
+        <td><%= execution.program.length %></td>
+
+        <%# 表示リンク %>
+        <td><%= link_to "表示", execution, class: "btn btn-info" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "新規実行", new_execution_path, class: "btn btn-primary" %>
