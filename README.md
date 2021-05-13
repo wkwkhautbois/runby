@@ -1,24 +1,18 @@
-# README
+# Runby
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
 
-Things you may want to cover:
+Rubyのソースコードと標準入力を入力すると、実行結果が画面に表示される。
 
-* Ruby version
+## 目的
 
-* System dependencies
+- Ruby / Rails の学習
+    - 画面表示
+    - Active Record でのDBアクセス
+    - 外部API呼び出し
+- docker rootless mode を試す
 
-* Configuration
 
-* Database creation
+## 概要図
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+comming soon...
