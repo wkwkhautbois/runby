@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_05_08_100154) do
 
-  create_table "accounts", force: :cascade do |t|
+  create_table "accounts", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2021_05_08_100154) do
     t.index ["name"], name: "index_accounts_on_name", unique: true
   end
 
-  create_table "executions", force: :cascade do |t|
-    t.integer "account_id", null: false
+  create_table "executions", charset: "utf8", force: :cascade do |t|
+    t.bigint "account_id", null: false
     t.text "program", null: false
     t.text "input", null: false
     t.text "output", null: false

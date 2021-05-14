@@ -9,15 +9,3 @@
 2.times do |no|
   Account.create(name: "test#{no}", password: "test")
 end
-
-Execution.skip_callback(:save, :before, :execute_program)
-5.times do |no|
-  account = Account.find_by(name: "test#{no % 2}")
-  Execution.create(
-    account_id: account.id,
-    program: "puts my name is\"#{account.name}\"",
-    input: "this is input",
-    output: "this is output",
-    result: 0
-  )
-end
